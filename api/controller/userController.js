@@ -14,9 +14,6 @@ const User = require("../model/userModel");
 
 //post request for register
 const register = (req, res) => {
-    res.set("Access-Control-Allow-Headers", "*")
-    res.set('Access-Control-Allow-Origin', "*")
-    res.set('Access-Control-Allow-Methods', 'GET, POST')
     User.findOne({ username: req.body.uname }).then(user => {
         if (user) {
             return res.json({ status: false, message: "Username already exists"});
